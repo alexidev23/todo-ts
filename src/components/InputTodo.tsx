@@ -1,19 +1,26 @@
+import { ItemTodo } from "./ItemTodo";
 import { Input } from "./ui/input";
 
 export function InputTodo() {
-  const todo = false
+  const todos = [
+    { id: 1, text: "Aprender React" },
+    { id: 2, text: "Estudiar Tailwind"},
+    { id: 3, text: "Practicar Cypress"},
+  ]
+  
   return (
     <div className="w-full px-10 md:px-0 md:w-[600px] mx-auto mt-10">
       <Input 
         type="text"
         placeholder="new todo..."
-        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent rounded-md shadow-sm w-full p-3 text-xl"
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent rounded-md shadow-sm w-full p-3 text-xl mb-6"
       />
-      {todo && (
-        <div className="mt-4 p-3 bg-gray-100 rounded-md">
-          <p className="text-gray-700">You have a new todo!</p>
-        </div>
-      )}
+      {todos.map(todo => (
+        <ItemTodo
+          key={todo.id}
+          text={todo.text}
+        />
+      ))}
       <div className="w-full flex items-center justify-between px-1 py-4">
         <div className="px-1.5 py-1 rounded-md text-sm text-slate-950 dark:text-gray-500">
           0 items
