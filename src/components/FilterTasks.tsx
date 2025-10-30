@@ -18,6 +18,7 @@ export function FilterTasks({ total, currentFilter, setFilter }: FilterTasksProp
             currentFilter === "active" ? "bg-blue-600 text-white" : "text-slate-950 dark:text-gray-500"
           }`}
           onClick={() => setFilter("active")}
+          data-cy="active-btn" data-button="active"
         >
           Active
         </button>
@@ -26,6 +27,7 @@ export function FilterTasks({ total, currentFilter, setFilter }: FilterTasksProp
             currentFilter === "completed" ? "bg-blue-600 text-white" : "text-slate-950 dark:text-gray-500"
           }`}
           onClick={() => setFilter("completed")}
+          data-cy="completed-btn" data-button="completed"
         >
           Completed
         </button>
@@ -34,6 +36,7 @@ export function FilterTasks({ total, currentFilter, setFilter }: FilterTasksProp
             currentFilter === "all" ? "bg-blue-600 text-white" : "text-slate-950 dark:text-gray-500"
           }`}
           onClick={() => setFilter("all")}
+          data-cy="all-btn" data-button="all"
         >
           All
         </button>

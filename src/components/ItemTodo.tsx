@@ -28,6 +28,8 @@ export function ItemTodo({ id, text, completed = false, toggleCompleted, editTod
         checked={completed}
         onClick={toggleCompleted}
         className="border-slate-900 dark:bg-slate-200 data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-500 dark:data-[state=checked]:text-white rounded-full"
+        data-cy="check-btn" 
+        data-button="check"
       />
 
       {isEditing ? (
@@ -46,10 +48,10 @@ export function ItemTodo({ id, text, completed = false, toggleCompleted, editTod
       )}
 
       <div className="flex items-center gap-2">
-        <button className="cursor-pointer hover:text-blue-600" onClick={() => setIsEditing(true)}>
+        <button className="cursor-pointer hover:text-blue-600" onClick={() => setIsEditing(true)} data-cy="edit-btn" data-button="edit">
           <Pencil size={15} />
         </button>
-        <button className="cursor-pointer" onClick={deleteTodo}>
+        <button className="cursor-pointer" onClick={deleteTodo} data-cy="delete-btn" data-button="delete">
           <X size={15} className="hover:text-red-600" />
         </button>
       </div>
