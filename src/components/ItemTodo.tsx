@@ -35,6 +35,7 @@ export function ItemTodo({ id, text, completed = false, toggleCompleted, editTod
       {isEditing ? (
         <form onSubmit={handleEditSubmit} className="w-full px-4">
           <input
+            data-cy="edit-input"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
             className="w-full px-2 py-1 rounded border"
