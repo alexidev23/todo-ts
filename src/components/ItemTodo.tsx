@@ -4,10 +4,11 @@ import { useState } from "react";
 
 interface ItemTodoProps {
   text: string;
+  completed?: boolean;
 }
 
-export function ItemTodo({ text }: ItemTodoProps) {
-  const [todoCompleted, setTodoCompleted] = useState(false);
+export function ItemTodo({ text, completed }: ItemTodoProps) {
+  const [todoCompleted, setTodoCompleted] = useState(completed);
 
   const handleCheckboxChange = () => {
     setTodoCompleted(!todoCompleted);
@@ -15,7 +16,7 @@ export function ItemTodo({ text }: ItemTodoProps) {
 
   return (
     <div className="w-full flex items-center justify-between py-2 border-b-2">
-      <Checkbox onCheckedChange={handleCheckboxChange} className="border-slate-900 dark:bg-slate-200 data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-500 dark:data-[state=checked]:text-white rounded-full" />
+      <Checkbox onClick={handleCheckboxChange ?? completed} className="border-slate-900 dark:bg-slate-200 data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-500 dark:data-[state=checked]:text-white rounded-full" />
       <p className={`text-start w-full px-4 ${todoCompleted ? "line-through text-gray-400" : "text-white"}`}>{text}</p>
       <div className="flex items-center gap-2">
         <button className="cursor-pointer hover:text-blue-600">
