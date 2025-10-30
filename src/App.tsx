@@ -10,8 +10,12 @@
     completed: boolean
   }
 
+  export type FilterType = "all" | "active" | "completed";
+
   function App() {
     const [tasks, setTasks] = useState<TodoProps[]>([])
+    // Filtro de tareas
+    const [filter, setFilter] = useState<FilterType>("all");
 
     // Cargar del localStorage al iniciar
     useEffect(() => {
@@ -45,7 +49,25 @@
       );
     };
 
+    // Editar tarea
+    const editTodo = (id: number, newText: string) => {
+      setTasks(prev =>
+        prev.map(task => task.id === id ? { ...task, text: newText } : task)
+      );
+    };
+
+    // Borrar tarea
+    const deleteTodo = (id: number) => {
+      setTasks(prev => prev.filter(task => task.id !== id));
+    };
+
     const completedTasks = tasks.filter(task => !task.completed).length;
+
+    const filteredTasks = tasks.filter(task => {
+      if (filter === "active") return !task.completed;
+      if (filter === "completed") return task.completed;
+      return true; // all
+    }); 
 
     return (
       <>
@@ -53,15 +75,22 @@
         <h1 className="w-full text-6xl font-semibold text-center py-3.5 text-blue-600 dark:text-white">TODO</h1>
         <div className="w-full px-10 md:px-0 md:w-[600px] mx-auto mt-10">
           <InputTodo addTodo={addTodo} />
-          {tasks.map(todo => (
+          {filteredTasks.map(todo => (
             <ItemTodo
               key={todo.id}
+              id={todo.id}
               text={todo.text}
               completed={todo.completed}
               toggleCompleted={() => toggleCompleted(todo.id)}
+              editTodo={editTodo}
+              deleteTodo={() => deleteTodo(todo.id)}
             />
           ))}
-          <FilterTasks total={completedTasks} />
+          <FilterTasks
+            total={completedTasks}
+            currentFilter={filter}
+            setFilter={setFilter}
+          />
         </div>
       </>
     )
