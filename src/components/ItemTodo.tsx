@@ -1,23 +1,23 @@
 import { Pencil, X } from "lucide-react";
 import { Checkbox } from "./ui/checkbox";
-import { useState } from "react";
 
 interface ItemTodoProps {
   text: string;
   completed?: boolean;
+  toggleCompleted: () => void;
 }
 
-export function ItemTodo({ text, completed }: ItemTodoProps) {
-  const [todoCompleted, setTodoCompleted] = useState(completed);
-
-  const handleCheckboxChange = () => {
-    setTodoCompleted(!todoCompleted);
-  }
-
+export function ItemTodo({ text, completed = false, toggleCompleted }: ItemTodoProps) {
   return (
     <div className="w-full flex items-center justify-between py-2 border-b-2">
-      <Checkbox onClick={handleCheckboxChange ?? completed} className="border-slate-900 dark:bg-slate-200 data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-500 dark:data-[state=checked]:text-white rounded-full" />
-      <p className={`text-start w-full px-4 ${todoCompleted ? "line-through text-gray-400" : "text-white"}`}>{text}</p>
+      <Checkbox
+        checked={completed}
+        onClick={toggleCompleted}
+        className="border-slate-900 dark:bg-slate-200 data-[state=checked]:bg-blue-500 dark:data-[state=checked]:bg-blue-500 dark:data-[state=checked]:text-white rounded-full"
+      />
+      <p className={`text-start w-full px-4 ${completed ? "line-through text-gray-400" : "text-white"}`}>
+        {text}
+      </p>
       <div className="flex items-center gap-2">
         <button className="cursor-pointer hover:text-blue-600">
           <Pencil size={15} />
@@ -27,5 +27,5 @@ export function ItemTodo({ text, completed }: ItemTodoProps) {
         </button>
       </div>
     </div>
-  )
+  );
 }
