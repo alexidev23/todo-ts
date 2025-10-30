@@ -40,7 +40,7 @@ export function ItemTodo({ id, text, completed = false, toggleCompleted, editTod
           />
         </form>
       ) : (
-        <p className={`text-start w-full px-4 ${completed ? "line-through text-gray-400" : "dark:text-white"} text-black dark:text-white`}>
+        <p className={`text-start w-full px-4 ${completed ? "line-through text-gray-400" : "dark:text-white"} text-black`}>
           {text}
         </p>
       )}
