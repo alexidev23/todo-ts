@@ -92,6 +92,11 @@
             setFilter={setFilter}
           />
         </div>
+        <footer className="absolute bottom-0 w-full">
+          <p className="text-center mt-10 mb-5 text-gray-500">
+            &copy; 2025 <a href="https://github.com/alexidev23" target="_blank" rel="noopener noreferrer" className="text-amber-50">alexidev23</a>
+          </p>
+        </footer>
       </>
     )
   }
