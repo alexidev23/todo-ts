@@ -95,10 +95,12 @@ Este repositorio cuenta con tres ramas principales que representan distintas eta
 
 ---
 
-## 📄 Licencia & Créditos
+## 🧑‍💻 Autor
 
-- Licencia: MIT  
-- Desarrollador: Alexis  
+**Alexis Escobar**  
+Desarrollador FrontEnd Junior apasionado por el aprendizaje y la mejora continua.  
+📬 LinkedIn: [https://www.linkedin.com/in/alexis-escobar-95b491184/](https://www.linkedin.com/in/alexis-escobar-95b491184/)  
+🔗 Portafolio: [https://github.com/alexidev23](https://github.com/alexidev23) 
 
 ---
 
