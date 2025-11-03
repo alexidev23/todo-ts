@@ -13,7 +13,7 @@ export const App = () => {
   const [currentFilter, setCurrentFilter] = useState<FilterType>("all");
 
   // calcular total de items no completados
-  const total = todos.filter((t) => t.completed).length;
+  const total = todos.filter((t) => !t.completed).length;
 
   if (loading) return <p>Cargando...</p>;
 
