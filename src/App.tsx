@@ -22,7 +22,7 @@ export const App = () => {
       <Header />
       <h1 className="text-6xl font-semibold text-center">TODO APP</h1>
       <InputTodo addTodo={addTodo} />
-      <div className="w-full px-10 md:px-0 md:w-[600px] mx-auto mt-10">
+      <div className="w-full px-10 md:px-0 md:w-150 mx-auto mt-10">
         {todos.map(todo => (
           <ItemTodo
             key={todo.id}
